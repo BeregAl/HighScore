@@ -32,7 +32,6 @@ namespace UnityToolbarExtender.Examples
         static void OnToolbarGUI()
         {
             GUILayout.FlexibleSpace();
-            var tex = EditorGUIUtility.IconContent(@"ClothInspector.PaintValue").image;
 
             if (GUILayout.Button(new GUIContent("M", "Open Menu scene"), ToolbarStyles.commandButtonStyle))
             {
