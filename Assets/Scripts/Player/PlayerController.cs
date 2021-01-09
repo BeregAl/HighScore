@@ -22,8 +22,12 @@ namespace Player
 
         private IEnumerator InputCoroutine()
         {
+            var teleportingDistance = 0f;
             while (true)
             {
+                teleportingDistance =
+                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.maxTeleportingDistance);
+                fantom.SetDistance(teleportingDistance);
                 if (Input.GetMouseButton(0))
                 {
                     var targetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
@@ -34,30 +38,27 @@ namespace Player
                         playerView.transform.position.y,
                         playerView.transform.position.z
                     ), 0.5f);
-                    Debug.Log(Camera.main.WorldToScreenPoint(playerView.transform.position));
                     heldTime += Time.deltaTime;
                 }
                 else
                 {
                     if (heldTime > 0)
                     {
-                        Teleport();
+                        Teleport(teleportingDistance);
                         heldTime = 0f;
                     }
                 }
 
-                fantom.SetDistance(TeleportingDistance);
 
                 yield return null;
             }
         }
 
-        private void Teleport()
+        private void Teleport(float distance)
         {
-            Debug.Log($"Teleporting to {playerView.transform.position.y + heldTime * Profile.accelerationMultiplier}");
             playerView.transform.position = new Vector3(
                 playerView.transform.position.x,
-                playerView.transform.position.y + heldTime * Profile.accelerationMultiplier,
+                playerView.transform.position.y + distance,
                 playerView.transform.position.z
             );
             rb.velocity = Vector2.zero;
