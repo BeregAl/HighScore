@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +27,16 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    [SerializeField] private PlayfabManager playfabManager;
-    [SerializeField] private UiManager uiManager;
+    public PlayfabManager playfabManager;
+    public CommonUiManager uiManager;
+
+    private void Start()
+    {
+        LoadFirstScene();
+    }
+    
+    private void LoadFirstScene()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
+    }
 }
