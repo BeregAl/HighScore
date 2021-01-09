@@ -6,9 +6,10 @@ namespace Misc
     public class Profile : MonoBehaviour
     {
         public static GameSetting acceleration = new GameSetting(3f, 10);
-        public static GameSetting maxTeleportingDistance = new GameSetting(5f, 10f);
+        public static GameSetting maxTeleportingDistance = new GameSetting(3f, 9f);
         public static GameSetting fallingSpeed =  new GameSetting(1f, 3f);
-        public static GameSetting obstacleSpawningCooldown = new GameSetting(5f, float.MaxValue, 0.3f);
+        public static GameSetting obstacleSpawningCooldown = new GameSetting(5f, float.MaxValue, 1.2f);
+        public static GameSetting powerUpsSpawningProbability = new GameSetting(0.1f, 0.3f);
         public static float scoreMultiplier = 1f;
         public bool SpawnAsShit;
 
@@ -24,8 +25,9 @@ namespace Misc
 
     public class GameSetting
     {
-        public float Value => Mathf.Clamp(baseValue * (baseMultiplier + modMultiplier),0, maxValue);
+        public float Value => Mathf.Clamp((baseValue + modValue) * (baseMultiplier + modMultiplier), minValue, maxValue);//TODO: нормальная математика
         private float baseValue;
+        private float modValue = 0f;
         private float maxValue;
         private float minValue;
         private float baseMultiplier = 1f;
@@ -48,6 +50,11 @@ namespace Misc
             baseValue = value;
             if (resetMultiplier)
                 modMultiplier = 0f;
+        }
+
+        public void AddValue(float value)
+        {
+            modValue += value;
         }
     }
 }

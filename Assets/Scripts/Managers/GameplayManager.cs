@@ -8,13 +8,15 @@ namespace Managers
     {
         public event Action GameOverEvent;
         public static GameplayManager gameplay;
-        public static ObstacleSpawner obstacleSpawner;
+        public static Spawner spawner;
+        public static UpgradeManager upgrade;
         private List<IManager> managers = new List<IManager>();
 
         private void Awake()
         {
             gameplay = this;
-            managers.Add(obstacleSpawner = GetComponent<ObstacleSpawner>());
+            managers.Add(spawner = GetComponent<Spawner>());
+            managers.Add(upgrade = GetComponent<UpgradeManager>());
             
             foreach (var manager in managers)
             {

@@ -3,6 +3,7 @@ using System.Collections;
 using Managers;
 using Misc;
 using UnityEngine;
+using Upgrades;
 
 namespace Player
 {
@@ -92,6 +93,10 @@ namespace Player
             {
                 GameplayManager.gameplay.Lose();
                 Debug.Log("GameOver suka");
+            }
+            else if (other.CompareTag("Powerup"))
+            {
+                other.gameObject.GetComponent<PowerupView>().Apply();
             }
         }
     }

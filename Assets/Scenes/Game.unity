@@ -572,9 +572,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1042607741}
   - component: {fileID: 1042607744}
-  - component: {fileID: 1042607743}
   - component: {fileID: 1042607742}
   - component: {fileID: 1042607745}
+  - component: {fileID: 1042607743}
   m_Layer: 0
   m_Name: Mangers
   m_TagString: Untagged
@@ -617,12 +617,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042607740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d332dcec7db26e3468dff4da88455ef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fb80559350bf554b803ccd35c127357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1252008340602595647, guid: f7bc296951f9870498a1c8d06934dde5,
     type: 3}
-  obstaclesParent: {fileID: 445326508}
+  powerupPrefab: {fileID: 5361028586156556962, guid: b43f56bed111f7440a421b31a1dfa616,
+    type: 3}
+  objectsParent: {fileID: 445326508}
 --- !u!114 &1042607744
 MonoBehaviour:
   m_ObjectHideFlags: 0
