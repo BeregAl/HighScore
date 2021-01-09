@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using TMPro;
 
 public class PlayfabManager : MonoBehaviour
 {
     [SerializeField] private LeaderboardRow leaderboardRowPrefab;
     [SerializeField] private Transform leaderboardRowsParent;
+
+    [Space] [SerializeField] private TMP_InputField inputField;
+    
+    public string userDisplayName = null;
 
     private void Start()
     {
@@ -50,6 +55,11 @@ public class PlayfabManager : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+
+        if (inputField.text != "")
+        {
+            SetUserDisplayName(inputField.text);
+        }
     }
 
     private void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
@@ -78,9 +88,34 @@ public class PlayfabManager : MonoBehaviour
         foreach (var item in result.Leaderboard)
         {
             var newRow = Instantiate(leaderboardRowPrefab, leaderboardRowsParent);
-            newRow.SetText((item.Position + 1).ToString(), item.PlayFabId, item.StatValue.ToString());
+            //newRow.SetText((item.Position + 1).ToString(), item.PlayFabId, item.StatValue.ToString());
+            newRow.SetText((item.Position + 1).ToString(), item.DisplayName, item.StatValue.ToString());
 
-            Debug.Log($"PLACE: {item.Position} | ID: {item.PlayFabId} | SCORE: {item.StatValue}");
+            Debug.Log($"PLACE: {item.Position} | ID: {item.DisplayName} | SCORE: {item.StatValue}");
         }
+    }
+    
+    private void SetUserDisplayName(string name)
+    {
+        userDisplayName = name;
+
+        PlayFabClientAPI.UpdateUserTitleDisplayName(
+            // Request
+            new UpdateUserTitleDisplayNameRequest
+            {
+                DisplayName = name
+            },
+            // Success
+            (UpdateUserTitleDisplayNameResult result) =>
+            {
+                Debug.Log("UpdateUserTitleDisplayName completed.");
+            },
+            // Failure
+            (PlayFabError error) =>
+            {
+                Debug.LogError("UpdateUserTitleDisplayName failed.");
+                Debug.LogError(error.GenerateErrorReport());
+            }
+        );
     }
 }
