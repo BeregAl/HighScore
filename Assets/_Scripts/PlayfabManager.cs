@@ -56,7 +56,7 @@ public class PlayfabManager : MonoBehaviour
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
 
-        if (inputField.text != "")
+        if (inputField.text != "" && inputField.text.Length > 2)
         {
             SetUserDisplayName(inputField.text);
         }
