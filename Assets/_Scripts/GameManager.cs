@@ -26,9 +26,5 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [SerializeField] private PlayfabManager playfabManager;
-
-    public void SendLeaderboard(int score)
-    {
-        playfabManager.SendLeaderboard(score);
-    }
+    [SerializeField] private UiManager uiManager;
 }

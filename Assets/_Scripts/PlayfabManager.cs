@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ using PlayFab.ClientModels;
 
 public class PlayfabManager : MonoBehaviour
 {
+    [SerializeField] private LeaderboardRow leaderboardRowPrefab;
+    [SerializeField] private Transform leaderboardRowsParent;
+
     private void Start()
     {
         Login();
@@ -66,9 +70,17 @@ public class PlayfabManager : MonoBehaviour
 
     private void OnLeaderboardGet(GetLeaderboardResult result)
     {
+        foreach (Transform item in leaderboardRowsParent)
+        {
+            Destroy(item.gameObject);
+        }
+        
         foreach (var item in result.Leaderboard)
         {
-            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            var newRow = Instantiate(leaderboardRowPrefab, leaderboardRowsParent);
+            newRow.SetText((item.Position + 1).ToString(), item.PlayFabId, item.StatValue.ToString());
+
+            Debug.Log($"PLACE: {item.Position} | ID: {item.PlayFabId} | SCORE: {item.StatValue}");
         }
     }
 }
