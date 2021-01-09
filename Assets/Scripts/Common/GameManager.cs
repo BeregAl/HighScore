@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region Singleton
-    
+
     public static GameManager instance;
 
     private void Awake()
@@ -32,9 +32,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+#if !UNITY_EDITOR
         LoadFirstScene();
+#endif
     }
-    
+
     private void LoadFirstScene()
     {
         SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
