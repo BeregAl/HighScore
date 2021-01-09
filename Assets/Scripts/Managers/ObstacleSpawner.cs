@@ -34,7 +34,7 @@ namespace Managers
         {
             while (true)
             {
-                yield return new WaitForSeconds(Profile.obstacleSpawningCooldown);
+                yield return new WaitForSeconds(Profile.obstacleSpawningCooldown.Value);
                 var newObstacle = Instantiate(obstaclePrefab, obstaclesParent);
                 var view = newObstacle.GetComponent<ObstacleView>();
                 var obstacleWidth = Random.Range(2, discretionSteps);
@@ -55,7 +55,7 @@ namespace Managers
                 {
                     obstacle.transform.Translate(Vector3.down *
                                                  (Time.deltaTime *
-                                                  Profile.fallingSpeed));
+                                                  Profile.fallingSpeed.Value));
                 }
 
                 for (int i = 0; i < obstacles.Count; i++)

@@ -12,7 +12,7 @@ namespace Player
         [SerializeField] private TeleportingFantom fantom;
         [SerializeField] private Rigidbody2D rb;
 
-        private float TeleportingDistance => heldTime * Profile.accelerationMultiplier;
+        private float TeleportingDistance => heldTime * Profile.acceleration.Value;
 
         private float heldTime = 0;
 
@@ -27,7 +27,7 @@ namespace Player
             while (true)
             {
                 teleportingDistance =
-                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.maxTeleportingDistance);
+                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.maxTeleportingDistance.Value);
                 fantom.SetDistance(teleportingDistance);
                 if (Input.GetMouseButton(0))
                 {
