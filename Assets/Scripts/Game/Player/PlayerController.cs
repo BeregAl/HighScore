@@ -3,6 +3,7 @@ using System.Collections;
 using Managers;
 using Misc;
 using UnityEngine;
+using Upgrades;
 
 namespace Player
 {
@@ -12,7 +13,7 @@ namespace Player
         [SerializeField] private TeleportingFantom fantom;
         [SerializeField] private Rigidbody2D rb;
 
-        private float TeleportingDistance => heldTime * Profile.accelerationMultiplier;
+        private float TeleportingDistance => heldTime * Profile.acceleration.Value;
 
         private float heldTime = 0;
 
@@ -27,7 +28,7 @@ namespace Player
             while (true)
             {
                 teleportingDistance =
-                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.maxTeleportingDistance);
+                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.maxTeleportingDistance.Value);
                 fantom.SetDistance(teleportingDistance);
                 if (Input.GetMouseButton(0))
                 {
@@ -92,6 +93,10 @@ namespace Player
             {
                 GameplayManager.gameplay.Lose();
                 Debug.Log("GameOver suka");
+            }
+            else if (other.CompareTag("Powerup"))
+            {
+                other.gameObject.GetComponent<PowerupView>().Apply();
             }
         }
     }
