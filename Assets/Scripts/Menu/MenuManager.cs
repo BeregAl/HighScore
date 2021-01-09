@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    private void Start()
-    {
-        //GameManager.instance.uiManager.HideTransitionImage();
-    }
-
     public void GoToGameScene()
     {
         GameManager.instance.uiManager.AnimateTransitionAndDoAction(() =>
