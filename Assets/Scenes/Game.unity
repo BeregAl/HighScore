@@ -918,13 +918,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0, g: 0, b: 0, a: 1}
+  color: {r: 0, g: 0, b: 0, a: 0}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0
   geometry: 1
-  colorMode: 0
-  colorEnd: {r: 1, g: 1, b: 1, a: 1}
+  colorMode: 1
+  colorEnd: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   start: {x: 0, y: 0, z: 0}
   end: {x: -0.0062918663, y: 1.3352878, z: 0}
   thickness: 0.05
@@ -933,7 +933,7 @@ MonoBehaviour:
   matchDashSpacingToSize: 1
   dashed: 1
   dashStyle:
-    type: 0
+    type: 2
     space: -1
     snap: 0
     size: 3.05
@@ -966,7 +966,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796074291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.837, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1031154546}
@@ -1035,13 +1035,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0, g: 0, b: 0, a: 1}
+  color: {r: 0, g: 0, b: 0, a: 0}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0
   type: 2
-  colorMode: 0
-  colorOuterStart: {r: 1, g: 1, b: 1, a: 1}
+  colorMode: 1
+  colorOuterStart: {r: 0, g: 0, b: 0, a: 1}
   colorInnerEnd: {r: 1, g: 1, b: 1, a: 1}
   colorOuterEnd: {r: 1, g: 1, b: 1, a: 1}
   geometry: 0
@@ -1050,7 +1050,7 @@ MonoBehaviour:
   angRadiansEnd: 2.3561945
   radius: 0.45
   radiusSpace: 0
-  thickness: 0.05
+  thickness: 0.07
   thicknessSpace: 0
   arcEndCaps: 0
   matchDashSpacingToSize: 1

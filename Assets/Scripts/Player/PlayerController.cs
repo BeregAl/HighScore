@@ -45,6 +45,7 @@ namespace Player
                 {
                     if (heldTime > 0)
                     {
+                        fantom.FantomVisible = false;
                         Teleport(teleportingDistance);
                         heldTime = 0f;
                     }
