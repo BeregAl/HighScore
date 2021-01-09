@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 1042607744}
   - component: {fileID: 1042607743}
   - component: {fileID: 1042607742}
+  - component: {fileID: 1042607745}
   m_Layer: 0
   m_Name: Mangers
   m_TagString: Untagged
@@ -632,6 +633,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbd89210cc6230640b146ee7a2dbc4e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1042607745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042607740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7790a4aabd53f4b81239fc3ac026cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1123459639

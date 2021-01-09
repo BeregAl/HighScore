@@ -22,6 +22,11 @@ namespace Misc
             
         }
     }
-    
-    public class 
+
+    public class GameSetting
+    {
+        public float currentValue;
+
+        //public void AddMultiplier;
+    } 
 }
