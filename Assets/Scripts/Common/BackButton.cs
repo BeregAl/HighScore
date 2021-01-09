@@ -7,6 +7,10 @@ public class BackButton : MonoBehaviour
 {
     public void GoToMenuScene()
     {
-        SceneManager.LoadScene("Menu");
+        GameManager.instance.uiManager.AnimateTransitionAndDoAction(() =>
+        {
+            SceneManager.LoadScene("Menu");
+            GameManager.instance.uiManager.HideTransitionImage();
+        });
     }
 }
