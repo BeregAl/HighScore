@@ -19,7 +19,7 @@ namespace Misc
             Vector2[] colliderpoints;
 
             var newObject = new GameObject();
-            newObject.transform.parent = transform;
+            /*newObject.transform.parent = transform;
             newObject.name = "upperEdge";
             EdgeCollider2D upperEdge = newObject.AddComponent<EdgeCollider2D>();
             colliderpoints = upperEdge.points;
@@ -27,7 +27,7 @@ namespace Misc
             colliderpoints[1] = new Vector2(rUCorner.x, rUCorner.y);
             upperEdge.points = colliderpoints;
 
-            newObject = new GameObject();
+            newObject = new GameObject();*/
             newObject.transform.parent = transform;
             newObject.name = "lowerEdge";
             EdgeCollider2D lowerEdge = newObject.AddComponent<EdgeCollider2D>();

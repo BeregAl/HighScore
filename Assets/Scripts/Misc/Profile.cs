@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Misc
 {
@@ -8,5 +9,16 @@ namespace Misc
         public static float maxTeleportingDistance = 5f;
         public static float fallingSpeed = 1f;
         public static float obstacleSpawningCooldown = 5f;
+        public bool SpawnAsShit;
+
+        private void Awake()
+        {
+            if (SpawnAsShit)
+            {
+                obstacleSpawningCooldown = 0.3f;
+                fallingSpeed = 3f;
+            }
+            
+        }
     }
 }

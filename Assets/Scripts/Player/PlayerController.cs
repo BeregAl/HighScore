@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Managers;
 using Misc;
 using UnityEngine;
 
@@ -82,6 +83,15 @@ namespace Player
                 targetX = pos.x;
             }
             return Camera.main.ScreenToWorldPoint(new Vector3(targetX, pos.y, pos.z));
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Obstacle"))
+            {
+                GameplayManager.gameplay.Lose();
+                Debug.Log("GameOver suka");
+            }
         }
     }
 }
