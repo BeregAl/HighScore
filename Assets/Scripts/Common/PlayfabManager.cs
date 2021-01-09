@@ -12,7 +12,7 @@ public class PlayfabManager : MonoBehaviour
     [SerializeField] private Transform leaderboardRowsParent;
 
     [Space] [SerializeField] private TMP_InputField inputField;
-    
+
     public string userDisplayName = null;
 
     private void Start()
@@ -55,11 +55,6 @@ public class PlayfabManager : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
-
-        if (inputField.text != "" && inputField.text.Length > 2)
-        {
-            SetUserDisplayName(inputField.text);
-        }
     }
 
     private void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
@@ -84,7 +79,7 @@ public class PlayfabManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-        
+
         foreach (var item in result.Leaderboard)
         {
             var newRow = Instantiate(leaderboardRowPrefab, leaderboardRowsParent);
@@ -94,9 +89,14 @@ public class PlayfabManager : MonoBehaviour
             Debug.Log($"PLACE: {item.Position} | ID: {item.DisplayName} | SCORE: {item.StatValue}");
         }
     }
-    
-    private void SetUserDisplayName(string name)
+
+    public void SetUserDisplayName()
     {
+        if (inputField.text == "" || inputField.text.Length < 3)
+            return;
+
+        string name = inputField.text;
+
         userDisplayName = name;
 
         PlayFabClientAPI.UpdateUserTitleDisplayName(
@@ -109,6 +109,7 @@ public class PlayfabManager : MonoBehaviour
             (UpdateUserTitleDisplayNameResult result) =>
             {
                 Debug.Log("UpdateUserTitleDisplayName completed.");
+                GetLeaderboard();
             },
             // Failure
             (PlayFabError error) =>
