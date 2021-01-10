@@ -13,6 +13,8 @@ namespace Player
         [SerializeField] private TeleportingFantom fantom;
         [SerializeField] private Rigidbody2D rb;
 
+        private float desiredPosX;
+
         private float TeleportingDistance => heldTime * Profile.acceleration.Value;
 
         private float heldTime = 0;
@@ -20,7 +22,24 @@ namespace Player
         private void Start()
         {
             StartCoroutine(InputCoroutine());
+            StartCoroutine(MovingCoroutine());
             GameplayManager.gameplay.GameOverEvent += OnGameOver;
+        }
+
+        private IEnumerator MovingCoroutine()
+        {
+            while (true)
+            {
+                var targetTranslationX = (Vector3.right * (desiredPosX - playerView.transform.position.x)) *
+                                         Profile.horizontalSpeed.Value;
+                
+                playerView.transform.position =  ClampToScreenBounds(new Vector3(
+                    playerView.transform.position.x + targetTranslationX.x,
+                    playerView.transform.position.y,
+                    playerView.transform.position.z
+                ), 0.5f);
+                yield return new WaitForEndOfFrame();
+            }
         }
 
         private void OnGameOver()
@@ -38,14 +57,7 @@ namespace Player
                 fantom.SetDistance(teleportingDistance);
                 if (Input.GetMouseButton(0))
                 {
-                    var targetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-                    //targetX = Mathf.Clamp(targetX, )
-                    
-                    playerView.transform.position = ClampToScreenBounds(new Vector3(
-                        targetX,
-                        playerView.transform.position.y,
-                        playerView.transform.position.z
-                    ), 0.5f);
+                    desiredPosX =  Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
                     heldTime += Time.deltaTime;
                 }
                 else

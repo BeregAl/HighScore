@@ -19,7 +19,7 @@ namespace Managers
     public class Spawner : MonoBehaviour, IManager
     {
         [SerializeField] private GameObject obstaclePrefab;
-        [SerializeField] private GameObject powerupPrefab;
+        [SerializeField] private List<GameObject> powerupPrefab;
         [SerializeField] private Transform objectsParent;
 
         private List<GameObject> objects = new List<GameObject>();
@@ -54,7 +54,7 @@ namespace Managers
 
         private void SpawnPowerup()
         {
-            var powerup = Instantiate(powerupPrefab, objectsParent);
+            var powerup = Instantiate(powerupPrefab[Random.Range(0, powerupPrefab.Count)], objectsParent);
             var obstaclePos =
                 Random.Range(-LevelWidth / 2 , LevelWidth/2 );
             var view = powerup.GetComponent<PowerupView>();

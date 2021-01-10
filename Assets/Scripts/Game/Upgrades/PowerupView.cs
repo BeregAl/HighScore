@@ -13,7 +13,7 @@ namespace Upgrades
             GameplayManager.spawner.RemoveObject(gameObject);
             
             GameManager.instance.audioManager.PlayPowerUp();
-            GameplayManager.scoreManager.Score += 3;
+            GameplayManager.scoreManager.Score += 50;
         }
 
         public void Init(float xPos)

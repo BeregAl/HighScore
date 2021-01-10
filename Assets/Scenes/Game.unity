@@ -834,8 +834,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1252008340602595647, guid: f7bc296951f9870498a1c8d06934dde5,
     type: 3}
-  powerupPrefab: {fileID: 5361028586156556962, guid: b43f56bed111f7440a421b31a1dfa616,
-    type: 3}
+  powerupPrefab:
+  - {fileID: 193213630803470760, guid: abf2a83e0f99a9540bb7bb0fc79d827c, type: 3}
+  - {fileID: 5361028586156556962, guid: b43f56bed111f7440a421b31a1dfa616, type: 3}
   objectsParent: {fileID: 445326508}
 --- !u!114 &1042607744
 MonoBehaviour:

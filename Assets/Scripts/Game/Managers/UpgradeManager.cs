@@ -15,6 +15,9 @@ namespace Managers
                 case UpdrageType.MaxDistance:
                     Profile.maxTeleportingDistance.AddMultiplier(0.1f);
                     break;
+                case UpdrageType.Speed:
+                    Profile.horizontalSpeed.AddMultiplier(0.1f);
+                    break;
             }
         }
 
@@ -31,5 +34,6 @@ namespace Managers
     {
         Acceleration,
         MaxDistance,
+        Speed,
     }
 }
