@@ -1,4 +1,5 @@
 ﻿using Managers;
+using Misc;
 using UnityEngine;
 
 namespace Upgrades
@@ -13,7 +14,7 @@ namespace Upgrades
             GameplayManager.spawner.RemoveObject(gameObject);
             
             GameManager.instance.audioManager.PlayPowerUp();
-            GameplayManager.scoreManager.Score += 50;
+            GameplayManager.scoreManager.Score += 50 * Profile.instance.scoreMultiplier;
         }
 
         public void Init(float xPos)

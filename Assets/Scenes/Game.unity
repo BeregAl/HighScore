@@ -787,6 +787,8 @@ GameObject:
   - component: {fileID: 1042607743}
   - component: {fileID: 1042607746}
   - component: {fileID: 1042607747}
+  - component: {fileID: 1042607748}
+  - component: {fileID: 1042607749}
   m_Layer: 0
   m_Name: Mangers
   m_TagString: Untagged
@@ -837,6 +839,7 @@ MonoBehaviour:
   powerupPrefab:
   - {fileID: 193213630803470760, guid: abf2a83e0f99a9540bb7bb0fc79d827c, type: 3}
   - {fileID: 5361028586156556962, guid: b43f56bed111f7440a421b31a1dfa616, type: 3}
+  - {fileID: 5361028586156556962, guid: f17abe64fb7cd9e47ae79c6d8999799b, type: 3}
   objectsParent: {fileID: 445326508}
 --- !u!114 &1042607744
 MonoBehaviour:
@@ -888,6 +891,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a471f487f51d74b99c3e7fd46e537a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1042607748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042607740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6f66bfc2ad190448ca778a617e21d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1042607749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042607740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a7dc6d56d9b0b42baed6e7f4c7699d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreMultiplier: 1
+  SpawnAsShit: 0
 --- !u!1 &1081035234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a7dc6d56d9b0b42baed6e7f4c7699d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreMultiplier: 1
   SpawnAsShit: 0
 --- !u!1 &1138110197
 GameObject:

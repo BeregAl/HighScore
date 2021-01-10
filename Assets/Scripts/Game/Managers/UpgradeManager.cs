@@ -10,13 +10,13 @@ namespace Managers
             switch (type)
             {
                 case UpdrageType.Acceleration:
-                    Profile.acceleration.AddMultiplier(0.1f);
+                    Profile.instance.acceleration.AddMultiplier(0.1f);
                     break;
                 case UpdrageType.MaxDistance:
-                    Profile.maxTeleportingDistance.AddMultiplier(0.1f);
+                    Profile.instance.maxTeleportingDistance.AddMultiplier(0.1f);
                     break;
                 case UpdrageType.Speed:
-                    Profile.horizontalSpeed.AddMultiplier(0.1f);
+                    Profile.instance.horizontalSpeed.AddMultiplier(0.1f);
                     break;
             }
         }

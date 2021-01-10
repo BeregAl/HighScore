@@ -32,6 +32,11 @@ PrefabInstance:
       propertyPath: color.r
       value: 0.2588235
       objectReference: {fileID: 0}
+    - target: {fileID: 2614859587353050274, guid: b43f56bed111f7440a421b31a1dfa616,
+        type: 3}
+      propertyPath: geometry
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2832422309847297336, guid: b43f56bed111f7440a421b31a1dfa616,
         type: 3}
       propertyPath: m_Mesh

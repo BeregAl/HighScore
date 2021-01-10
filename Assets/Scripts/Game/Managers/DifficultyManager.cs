@@ -7,7 +7,7 @@ namespace Managers
 {
     public class DifficultyManager : MonoBehaviour
     {
-        private void Awake()
+        private void Start()
         {
             StartCoroutine(DifficultyCoroutine());
         }
@@ -16,9 +16,11 @@ namespace Managers
         {
             while (true)
             {
-                yield return new WaitForSeconds(1f);
-                Profile.obstacleSpawningCooldown.AddValue(-0.1f);
-                Profile.fallingSpeed.AddValue(0.1f);
+                yield return new WaitForSeconds(3f);
+                Profile.instance.obstacleSpawningCooldown.AddValue(-0.1f);
+                Profile.instance.fallingSpeed.AddValue(0.1f);
+                Profile.instance.scoreMultiplier += 0.1f;
+                Debug.Log($"Diff {Profile.instance.obstacleSpawningCooldown.Value} {Profile.instance.fallingSpeed.Value}");
             }
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Misc;
 using UnityEngine;
 
 namespace Managers
@@ -11,8 +12,8 @@ namespace Managers
             get => _score;
             set
             {
-                _score = value;
-                GameplayManager.uiManager.SetScore(value);
+                _score = (int)value;
+                GameplayManager.uiManager.SetScore(_score);
             }
         }
 
@@ -31,7 +32,7 @@ namespace Managers
             while (true)
             {
                 yield return _scoringDelay;
-                Score++;
+                Score += Profile.instance.scoreMultiplier;
             }
         }
 

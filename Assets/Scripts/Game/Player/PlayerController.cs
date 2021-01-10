@@ -15,7 +15,7 @@ namespace Player
 
         private float desiredPosX;
 
-        private float TeleportingDistance => heldTime * Profile.acceleration.Value;
+        private float TeleportingDistance => heldTime * Profile.instance.acceleration.Value;
 
         private float heldTime = 0;
 
@@ -30,8 +30,7 @@ namespace Player
         {
             while (true)
             {
-                var targetTranslationX = (Vector3.right * (desiredPosX - playerView.transform.position.x)) *
-                                         Profile.horizontalSpeed.Value;
+                var targetTranslationX = Vector3.right * ((desiredPosX - playerView.transform.position.x) * Profile.instance.horizontalSpeed.Value);
                 
                 playerView.transform.position =  ClampToScreenBounds(new Vector3(
                     playerView.transform.position.x + targetTranslationX.x,
@@ -53,7 +52,7 @@ namespace Player
             while (true)
             {
                 teleportingDistance =
-                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.maxTeleportingDistance.Value);
+                    Mathf.Clamp(TeleportingDistance, TeleportingDistance, Profile.instance.maxTeleportingDistance.Value);
                 fantom.SetDistance(teleportingDistance);
                 if (Input.GetMouseButton(0))
                 {
@@ -101,6 +100,11 @@ namespace Player
             else
             {
                 targetX = pos.x;
+            }
+
+            if (pos.y > Screen.height - rad)
+            {
+                pos.y = Screen.height - rad;
             }
             return Camera.main.ScreenToWorldPoint(new Vector3(targetX, pos.y, pos.z));
         }

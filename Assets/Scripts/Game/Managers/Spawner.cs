@@ -26,7 +26,7 @@ namespace Managers
         private float LevelWidth => Camera.main.orthographicSize * 2 * Camera.main.aspect;
         private int discretionSteps = 8;
 
-        private void Awake()
+        private void Start()
         {
             StartCoroutine(SpawningCoroutine());
             StartCoroutine(FallingCoroutine());
@@ -36,11 +36,11 @@ namespace Managers
         {
             while (true)
             {
-                yield return new WaitForSeconds(Profile.obstacleSpawningCooldown.Value);
+                yield return new WaitForSeconds(Profile.instance.obstacleSpawningCooldown.Value);
 
                 var rand = Random.Range(0, 1f);
                 Debug.Log($"Rand: {rand}");
-                if (rand < Profile.powerUpsSpawningProbability.Value)
+                if (rand < Profile.instance.powerUpsSpawningProbability.Value)
                 {
                     SpawnPowerup();
                 }
@@ -82,7 +82,7 @@ namespace Managers
                 {
                     obstacle.transform.Translate(Vector3.down *
                                                  (Time.deltaTime *
-                                                  Profile.fallingSpeed.Value));
+                                                  Profile.instance.fallingSpeed.Value));
                 }
 
                 for (int i = 0; i < objects.Count; i++)

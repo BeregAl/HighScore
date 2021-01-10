@@ -5,17 +5,20 @@ namespace Misc
 {
     public class Profile : MonoBehaviour
     {
-        public static GameSetting acceleration = new GameSetting(3f, 10);
-        public static GameSetting maxTeleportingDistance = new GameSetting(3f, 9f);
-        public static GameSetting fallingSpeed =  new GameSetting(1.5f, 3f);
-        public static GameSetting obstacleSpawningCooldown = new GameSetting(5f, float.MaxValue, 1.2f);
-        public static GameSetting powerUpsSpawningProbability = new GameSetting(0.1f, 0.3f);
-        public static GameSetting horizontalSpeed = new GameSetting(0.01f, 3f);
-        public static float scoreMultiplier = 1f;
+        public static Profile instance;
+        
+        public GameSetting acceleration = new GameSetting(5f, 10);
+        public GameSetting maxTeleportingDistance = new GameSetting(3f, 9f);
+        public GameSetting fallingSpeed =  new GameSetting(1.5f, 7f);
+        public GameSetting obstacleSpawningCooldown = new GameSetting(5f, float.MaxValue, 0.5f);
+        public GameSetting powerUpsSpawningProbability = new GameSetting(0.1f, 0.3f);
+        public GameSetting horizontalSpeed = new GameSetting(0.01f, 3f);
+        public float scoreMultiplier = 1f;
         public bool SpawnAsShit;
 
         private void Awake()
         {
+            instance = this;
             if (SpawnAsShit)
             {
                 obstacleSpawningCooldown.Set(0.3f);
