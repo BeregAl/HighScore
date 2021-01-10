@@ -7,6 +7,7 @@ public class BackButton : MonoBehaviour
 {
     public void GoToMenuScene()
     {
+        GameManager.instance.audioManager.PlayClick();
         GameManager.instance.uiManager.AnimateTransitionAndDoAction(() =>
         {
             SceneManager.LoadScene("Menu");

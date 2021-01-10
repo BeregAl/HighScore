@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public void GoToGameScene()
     {
+        GameManager.instance.audioManager.PlayClick();
         GameManager.instance.uiManager.AnimateTransitionAndDoAction(() =>
         {
             SceneManager.LoadScene("Game");
@@ -17,6 +18,13 @@ public class MenuManager : MonoBehaviour
 
     public void OpenLeaderboard()
     {
+        GameManager.instance.audioManager.PlayClick();
         GameManager.instance.uiManager.leaderboardDialog.ShowDialog();
+    }
+    
+    public void OpenSettings()
+    {
+        GameManager.instance.audioManager.PlayClick();
+        GameManager.instance.uiManager.settingsDialog.ShowDialog();
     }
 }

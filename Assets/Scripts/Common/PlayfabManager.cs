@@ -90,9 +90,11 @@ public class PlayfabManager : MonoBehaviour
         }
     }
 
-    public void SetUserDisplayName()
+    public void SetOrUpdateUserDisplayName()
     {
-        if (inputField.text == "" || inputField.text.Length < 3)
+        GameManager.instance.audioManager.PlayClick();
+        
+        if (inputField.text.Length < 3)
             return;
 
         string name = inputField.text;
