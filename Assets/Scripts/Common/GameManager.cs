@@ -29,12 +29,14 @@ public class GameManager : MonoBehaviour
 
     public PlayfabManager playfabManager;
     public CommonUiManager uiManager;
+    public AudioManager audioManager;
 
     private void Start()
     {
 #if !UNITY_EDITOR
         LoadFirstScene();
 #endif
+        audioManager.InitAudioConfig();
     }
 
     private void LoadFirstScene()

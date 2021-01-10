@@ -8,6 +8,7 @@ public class CommonUiManager : MonoBehaviour
     [SerializeField] private SceneTransitionManager sceneTransition;
     
     public LeaderboardDialog leaderboardDialog;
+    public SettingsDialog settingsDialog;
     
     public void HideTransitionImage()
     {

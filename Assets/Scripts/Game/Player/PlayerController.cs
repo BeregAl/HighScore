@@ -92,6 +92,7 @@ namespace Player
             if (other.CompareTag("Obstacle"))
             {
                 GameplayManager.gameplay.Lose();
+                GameManager.instance.audioManager.PlayLose();
                 Debug.Log("GameOver suka");
             }
             else if (other.CompareTag("Powerup"))

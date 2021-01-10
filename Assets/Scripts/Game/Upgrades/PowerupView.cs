@@ -11,6 +11,8 @@ namespace Upgrades
         {
             GameplayManager.upgrade.CollectUpgrade(type);
             GameplayManager.spawner.RemoveObject(gameObject);
+            
+            GameManager.instance.audioManager.PlayPowerUp();
         }
 
         public void Init(float xPos)
