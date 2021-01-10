@@ -82,6 +82,7 @@ namespace Player
                 playerView.transform.position.z
             );
             rb.velocity = Vector2.zero;
+            GameManager.instance.audioManager.PlayTeleport();
         }
 
         public Vector3 ClampToScreenBounds(Vector3 input, float radius)

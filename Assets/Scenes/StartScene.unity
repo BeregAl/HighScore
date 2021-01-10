@@ -2563,6 +2563,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 315650089f0eed6499bba2f1b1bbe48f, type: 3}
   - {fileID: 8300000, guid: a8f7274c45535bc4096cded980ec0aec, type: 3}
   - {fileID: 8300000, guid: a4e1f0af6b810a54d893a04219728864, type: 3}
+  teleport:
+  - {fileID: 8300000, guid: a8f7274c45535bc4096cded980ec0aec, type: 3}
   musicAudioSource: {fileID: 1468245420}
   soundsAudioSource: {fileID: 1215112928}
   musicOn: 1

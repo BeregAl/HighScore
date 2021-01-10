@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> lose;
     public List<AudioClip> success;
     public List<AudioClip> powerUp;
+    public List<AudioClip> teleport;
     
     [Space] public AudioSource musicAudioSource;
     public AudioSource soundsAudioSource;
@@ -59,6 +60,14 @@ public class AudioManager : MonoBehaviour
 
         soundsAudioSource.pitch = Random.Range(0.9f, 1.1f);
         soundsAudioSource.PlayOneShot(click[Random.Range(0, click.Count)]);
+    }
+
+    public void PlayTeleport()
+    {
+        if (!soundOn) return;
+
+        soundsAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        soundsAudioSource.PlayOneShot(teleport[Random.Range(0, click.Count)]);
     }
     
     public void PlayLose()

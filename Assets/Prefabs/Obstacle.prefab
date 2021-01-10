@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0.9974048, g: 1, b: 0.35283017, a: 1}
+  color: {r: 0.9568628, g: 0.92549026, b: 0.3921569, a: 1}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0.22075468, g: 0.3547458, b: 1, a: 1}
+  color: {r: 0.098039225, g: 0.6039216, b: 0.8078432, a: 1}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0

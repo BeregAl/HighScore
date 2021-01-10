@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0.2588235, g: 0.31927025, b: 1, a: 1}
+  color: {r: 0.2901961, g: 0.19607845, b: 0.68235296, a: 1}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 1, g: 0.95890903, b: 0.2584905, a: 1}
+  color: {r: 0.9568628, g: 0.92549026, b: 0.3921569, a: 1}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 8740984314969734645}
   - component: {fileID: 3119065357834736063}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: PowerUp Distance
   m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
