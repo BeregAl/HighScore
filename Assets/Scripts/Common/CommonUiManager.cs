@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 public class CommonUiManager : MonoBehaviour
@@ -9,7 +10,16 @@ public class CommonUiManager : MonoBehaviour
     
     public LeaderboardDialog leaderboardDialog;
     public SettingsDialog settingsDialog;
-    
+
+    private void Awake()
+    {
+    }
+
+    private void OnGameOver()
+    {
+        
+    }
+
     public void HideTransitionImage()
     {
         if (sceneTransition)

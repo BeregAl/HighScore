@@ -17,9 +17,15 @@ namespace Player
 
         private float heldTime = 0;
 
-        private void Awake()
+        private void Start()
         {
             StartCoroutine(InputCoroutine());
+            GameplayManager.gameplay.GameOverEvent += OnGameOver;
+        }
+
+        private void OnGameOver()
+        {
+            StopAllCoroutines();
         }
 
         private IEnumerator InputCoroutine()

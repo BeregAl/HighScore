@@ -14,6 +14,9 @@ namespace Managers
         public static ScoreManager scoreManager;
         public static UiManager uiManager;
         private List<IManager> managers = new List<IManager>();
+        
+        
+        [SerializeField] private GameObject loseSplash;
 
         private void Awake()
         {
@@ -31,7 +34,10 @@ namespace Managers
 
         public void Lose()
         {
+            loseSplash.SetActive(true);
             GameOverEvent?.Invoke();
+            GameManager.instance.playfabManager.SendLeaderboard((int)scoreManager.Score);
+            GameManager.instance.uiManager.leaderboardDialog.ShowDialog((int)scoreManager.Score);
         }
 
         public void OnDestroy()

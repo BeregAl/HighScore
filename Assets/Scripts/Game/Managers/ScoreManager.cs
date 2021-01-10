@@ -22,7 +22,7 @@ namespace Managers
 
         private void Start()
         {
-            _scoringDelay = new WaitForSeconds(3f);
+            _scoringDelay = new WaitForSeconds(0.5f);
             StartCoroutine(Scoring());
         }
 
