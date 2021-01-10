@@ -12,7 +12,7 @@ namespace Misc
         public GameSetting fallingSpeed =  new GameSetting(1.5f, 7f);
         public GameSetting obstacleSpawningCooldown = new GameSetting(5f, float.MaxValue, 0.5f);
         public GameSetting powerUpsSpawningProbability = new GameSetting(0.1f, 0.3f);
-        public GameSetting horizontalSpeed = new GameSetting(0.01f, 3f);
+        public GameSetting horizontalSpeed = new GameSetting(0.02f, 3f);
         public float scoreMultiplier = 1f;
         public bool SpawnAsShit;
 

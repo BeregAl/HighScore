@@ -16,7 +16,7 @@ namespace Managers
                     Profile.instance.maxTeleportingDistance.AddMultiplier(0.1f);
                     break;
                 case UpdrageType.Speed:
-                    Profile.instance.horizontalSpeed.AddMultiplier(0.1f);
+                    Profile.instance.horizontalSpeed.AddMultiplier(0.5f);
                     break;
             }
         }

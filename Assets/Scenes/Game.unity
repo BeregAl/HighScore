@@ -1471,7 +1471,7 @@ MonoBehaviour:
   zOffsetUnits: 0
   type: 0
   colorMode: 1
-  colorOuterStart: {r: 0.9725491, g: 0.627451, b: 0.29411766, a: 1}
+  colorOuterStart: {r: 0.97647065, g: 0.627451, b: 0.29803923, a: 1}
   colorInnerEnd: {r: 1, g: 1, b: 1, a: 1}
   colorOuterEnd: {r: 1, g: 1, b: 1, a: 1}
   geometry: 0
