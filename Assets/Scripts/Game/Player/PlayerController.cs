@@ -31,7 +31,7 @@ namespace Player
             while (true)
             {
                 var delta = Mathf.Clamp(desiredPosX - playerView.transform.position.x, -1,1);
-                var targetTranslationX = Vector3.right * ((delta) * Profile.instance.horizontalSpeed.Value);
+                var targetTranslationX = Vector3.right * ((delta) * Profile.instance.horizontalSpeed.Value * Time.deltaTime);
                 
                 playerView.transform.position =  ClampToScreenBounds(new Vector3(
                     playerView.transform.position.x + targetTranslationX.x,
