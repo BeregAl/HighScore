@@ -37,7 +37,6 @@ public class PlayfabManager : MonoBehaviour
 
     private void OnError(PlayFabError error)
     {
-        //Debug.LogWarning("Error while logging in/creating account!");
         Debug.LogWarning(error.GenerateErrorReport());
     }
 
@@ -83,7 +82,6 @@ public class PlayfabManager : MonoBehaviour
         foreach (var item in result.Leaderboard)
         {
             var newRow = Instantiate(leaderboardRowPrefab, leaderboardRowsParent);
-            //newRow.SetText((item.Position + 1).ToString(), item.PlayFabId, item.StatValue.ToString());
             newRow.SetText((item.Position + 1).ToString(), item.DisplayName, item.StatValue.ToString());
 
             Debug.Log($"PLACE: {item.Position} | ID: {item.DisplayName} | SCORE: {item.StatValue}");
@@ -102,18 +100,15 @@ public class PlayfabManager : MonoBehaviour
         userDisplayName = name;
 
         PlayFabClientAPI.UpdateUserTitleDisplayName(
-            // Request
             new UpdateUserTitleDisplayNameRequest
             {
                 DisplayName = name
             },
-            // Success
             (UpdateUserTitleDisplayNameResult result) =>
             {
                 Debug.Log("UpdateUserTitleDisplayName completed.");
                 GetLeaderboard();
             },
-            // Failure
             (PlayFabError error) =>
             {
                 Debug.LogError("UpdateUserTitleDisplayName failed.");

@@ -12,9 +12,11 @@ namespace Upgrades
         {
             GameplayManager.upgrade.CollectUpgrade(type);
             GameplayManager.spawner.RemoveObject(gameObject);
-            
+
             GameManager.instance.audioManager.PlayPowerUp();
             GameplayManager.scoreManager.Score += 50 * Profile.instance.scoreMultiplier;
+            var newPopupText = GameplayManager.uiManager.CreatePopupText(transform);
+            newPopupText.SetText("+" + type.ToString());
         }
 
         public void Init(float xPos)

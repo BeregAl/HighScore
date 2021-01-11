@@ -20,6 +20,7 @@ namespace Managers
                 Profile.instance.obstacleSpawningCooldown.AddValue(-0.1f);
                 Profile.instance.fallingSpeed.AddValue(0.1f);
                 Profile.instance.scoreMultiplier += 0.1f;
+                GameplayManager.uiManager.SetScoreMultiplier((int)Profile.instance.scoreMultiplier);
                 Debug.Log($"Diff {Profile.instance.obstacleSpawningCooldown.Value} {Profile.instance.fallingSpeed.Value}");
             }
         }
